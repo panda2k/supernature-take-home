@@ -5,6 +5,7 @@
             <v-icon icon="mdi-upload" class="mr-1"></v-icon>
             {{ this.uploading ? `Uploading (${this.progress}%)` : "Upload Sheet" }}
         </v-btn>
+        <v-alert type="error" v-if="error">{{ this.errorMessage }}</v-alert>
     </div>
 </template>
 
@@ -19,7 +20,9 @@ export default {
     data() {
         return {
             uploading: false,
-            progress: 0
+            progress: 0,
+            error: false,
+            errorMessage: ""
         }
     },
     methods: {
@@ -27,6 +30,7 @@ export default {
             document.getElementById("upload").click();
         },
         async handleFile(e) {
+            this.error = false
             const files = e.target.files
             if (!files.length) {
                 return
@@ -35,6 +39,7 @@ export default {
                 const table = await readXlsxFile(files[0])
                 // remove the header column
                 table.shift()
+                this.$store.commit('changeFile', files[0])
                 this.$store.commit('changeTable', null)
                 this.$store.commit('changeTable', table)
 
@@ -50,8 +55,8 @@ export default {
                 }
 
             } catch (error) {
-                console.log("error uploading")           
-                console.log(error)
+                this.error = true
+                this.errorMessage = "Error reading file. Make sure to is a .xlsx file"
             }
 
             this.uploading = false

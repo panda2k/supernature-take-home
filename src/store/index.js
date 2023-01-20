@@ -4,7 +4,8 @@ export default createStore({
     state () {
         return {
             table: null,
-            user: null
+            user: null,
+            file: null
         }
     },
     mutations: {
@@ -13,6 +14,9 @@ export default createStore({
         },
         changeUser (state, u) {
             state.user = u
+        },
+        changeFile (state, f) {
+            state.file = f
         }
     }
 })

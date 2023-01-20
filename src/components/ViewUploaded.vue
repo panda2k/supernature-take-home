@@ -76,13 +76,13 @@ export default {
                             this.$store.commit("changeTable", table)
                             table
                         })
+                    this.$store.commit('changeFile', result)
                     return result
                 })
         },
         download(file) {
             this.load(file)
                 .then(res => {
-                    console.log(res)
                     const url = window.URL.createObjectURL(res)
                     const a = document.createElement('a')
                     a.style.display = 'none'

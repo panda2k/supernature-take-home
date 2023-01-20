@@ -16,6 +16,9 @@
             <div v-if="this.$store.state.user"> 
                 <ViewUploaded />
             </div>
+            <div v-if="this.$store.state.file">
+                <FileDownload /> 
+            </div>
         </div>
     </v-app-bar> 
 </template>
@@ -24,12 +27,14 @@
 import FileUpload from './FileUpload.vue'
 import Login from './Login.vue'
 import ViewUploaded from './ViewUploaded.vue'
+import FileDownload from './FileDownload.vue'
 
 export default {
     components: {
         FileUpload,
         Login,
-        ViewUploaded
+        ViewUploaded,
+        FileDownload
     }
 }
 

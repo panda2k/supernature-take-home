@@ -15,10 +15,7 @@ export default {
         click() {
             signInWithPopup(auth, provider)
                 .then(result => {
-                    const credential = GoogleAuthProvider.credentialFromResult(result)
-                    const token = credential.accessToken
                     const user = result.user
-                    console.log(user)
                     this.$store.commit("changeUser", user)
                 })
                 .catch(error => {
