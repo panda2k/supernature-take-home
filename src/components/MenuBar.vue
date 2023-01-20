@@ -13,11 +13,11 @@
             <div class="px-8">
                 <FileUpload />
             </div>
-            <div v-if="this.$store.state.user"> 
-                <ViewUploaded />
-            </div>
             <div v-if="this.$store.state.file">
                 <FileDownload /> 
+            </div>
+            <div v-if="this.$store.state.user"> 
+                <ViewUploaded />
             </div>
         </div>
     </v-app-bar> 
