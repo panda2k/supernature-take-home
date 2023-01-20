@@ -1,57 +1,18 @@
-# base
+# Supernature Take Home Interview
+Site is live [here](https://supernature-take-home.vercel.app)
 
-## Project setup
+## Tech Stack 
+The site is built with [VueJS](https://vuejs.org), [Vuetify 3](https://next.vuetifyjs.com/en/),
+[Vite](https://vitejs.dev), and [Vuex](https://vuex.vuejs.org/) for the frontend. 
+It also uses [Firebase](https://firebase.google.com)
+for authentication as well as file storage.
 
-```
-# yarn
-yarn
+## Functionality
+This site reads an Itinerary excel sheet and displays it. You can also download
+the current sheet with the download sheet button.
 
-# npm
-npm install
 
-# pnpm
-pnpm install
-```
+If you login (Google OAuth), the file will be uploaded to the cloud and retrievable
+with the past uploads button. From the past uploads button, you can delete,
+display, or download old sheets. 
 
-### Compiles and hot-reloads for development
-
-```
-# yarn
-yarn dev
-
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-```
-
-### Compiles and minifies for production
-
-```
-# yarn
-yarn build
-
-# npm
-npm run build
-
-# pnpm
-pnpm build
-```
-
-### Lints and fixes files
-
-```
-# yarn
-yarn lint
-
-# npm
-npm run lint
-
-# pnpm
-pnpm lint
-```
-
-### Customize configuration
-
-See [Configuration Reference](https://vitejs.dev/config/).
