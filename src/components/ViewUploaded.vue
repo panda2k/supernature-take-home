@@ -5,9 +5,8 @@
     </v-btn>
     <v-dialog v-model="popup" class="">
         <div class="d-flex justify-center w-100 align-center">
-
             <v-card 
-                class="d-flex flex-col align-center py-6 px-6" 
+                class="d-flex flex-column align-center py-6 px-6" 
                 :class="{
                     'w-50': lgAndUp && (this.loading || this.files.length == 0),
                     'w-75': md && (this.loading || this.files.length == 0),
