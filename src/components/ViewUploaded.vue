@@ -5,6 +5,9 @@
     </v-btn>
     <v-dialog v-model="popup" class="">
         <v-card class="d-flex flex-col align-center py-6 px-6">
+            <div v-if="files.length == 0">
+                {{ this.loading ? "Loading..." : "No files uploaded" }}
+            </div>
             <div v-for="file in files" :key="file.name + file.timestamp" class="d-flex justify-space-between w-100 py-3">
                 <div style="margin-top: 6px;">
                     {{ file.name }}
@@ -40,11 +43,13 @@ export default {
     data() {
         return {
             popup: false,
-            files: []
+            files: [],
+            loading: false
         }
     },
     methods: {
         fetchFiles() {
+            this.loading = true;
             this.files = []
             const listRef = ref(storage, `${this.$store.state.user.uid}`)
             listAll(listRef)
@@ -64,6 +69,9 @@ export default {
                 })
                 .catch(error => {
                     console.log(error)
+                })
+                .finally(() => {
+                    this.loading = false
                 })
         },
         async load (file) {
