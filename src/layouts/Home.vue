@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import MenuBar from '../../components/MenuBar.vue'
-import Table from '../../components/Table.vue'
+import MenuBar from '@/components/MenuBar.vue'
+import Table from '@/components/Table.vue'
 
 export default {
     components: {
